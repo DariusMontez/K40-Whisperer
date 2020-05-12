@@ -631,7 +631,7 @@ class SVG_READER(inkex.Effect):
                   'yd': 25.4*12*3,
                   'ft': 25.4*12}
   
-        unit = re.compile('(%s)$' % '|'.join(uuconv.keys()))
+        unit = re.compile('(%s)$' % '|'.join(list(uuconv.keys())))
         param = re.compile(r'(([-+]?[0-9]+(\.[0-9]*)?|[-+]?\.[0-9]+)([eE][-+]?[0-9]+)?)')
 
         string = string.replace(' ','')
@@ -862,4 +862,4 @@ if __name__ == '__main__':
     #svg_reader.make_paths()
     tests=["100 mm ",".1 m ","4 in ","100 px ", "100  "]
     for line in tests:
-        print(svg_reader.unit2mm(line),svg_reader.unit2px(line))
+        print((svg_reader.unit2mm(line),svg_reader.unit2px(line)))

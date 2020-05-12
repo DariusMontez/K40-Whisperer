@@ -55,10 +55,10 @@ if VERSION == 3:
     MAXINT = sys.maxsize
     
 else:
-    from Tkinter import *
-    from tkFileDialog import *
-    import tkMessageBox
-    MAXINT = sys.maxint
+    from tkinter import *
+    from tkinter.filedialog import *
+    import tkinter.messagebox
+    MAXINT = sys.maxsize
 
 if VERSION < 3 and sys.version_info[1] < 6:
     def next(item):
@@ -1791,7 +1791,7 @@ class Application(Frame):
             self.send_data(operation_type=operation_type, output_filename=filename)
             self.EGV_FILE = filename
         if DEBUG:
-            print("time = %d seconds" %(int(time()-start)))
+            print(("time = %d seconds" %(int(time()-start))))
         self.stop[0]=True
         
 
@@ -3698,13 +3698,13 @@ class Application(Frame):
         if DEBUG:
             curframe = inspect.currentframe()
             calframe = inspect.getouterframes(curframe, 2)
-            print('menu_View_Refresh_Callback called by: %s' %(calframe[1][3]))
+            print(('menu_View_Refresh_Callback called by: %s' %(calframe[1][3])))
 
     def menu_View_Refresh(self):
         if DEBUG:
             curframe = inspect.currentframe()
             calframe = inspect.getouterframes(curframe, 2)
-            print('menu_View_Refresh called by: %s' %(calframe[1][3]))
+            print(('menu_View_Refresh called by: %s' %(calframe[1][3])))
 
         try:
             app.master.title(title_text+"   "+ self.DESIGN_FILE)
@@ -5280,7 +5280,7 @@ def message_box(title,message):
     if VERSION == 3:
         tkinter.messagebox.showinfo(title,message)
     else:
-        tkMessageBox.showinfo(title,message)
+        tkinter.messagebox.showinfo(title,message)
         pass
 
 ################################################################################
@@ -5290,7 +5290,7 @@ def message_ask_ok_cancel(title, mess):
     if VERSION == 3:
         result=tkinter.messagebox.askokcancel(title, mess)
     else:
-        result=tkMessageBox.askokcancel(title, mess)
+        result=tkinter.messagebox.askokcancel(title, mess)
     return result
 
 ################################################################################
@@ -5303,18 +5303,18 @@ def debug_message(message):
         if VERSION == 3:
             tkinter.messagebox.showinfo(title,message)
         else:
-            tkMessageBox.showinfo(title,message)
+            tkinter.messagebox.showinfo(title,message)
             pass
 
 ################################################################################
 #                         Choose Units Dialog                                  #
 ################################################################################
 if VERSION < 3:
-    import tkSimpleDialog
+    import tkinter.simpledialog
 else:
     import tkinter.simpledialog as tkSimpleDialog
 
-class UnitsDialog(tkSimpleDialog.Dialog):
+class UnitsDialog(tkinter.simpledialog.Dialog):
     def body(self, master):
         self.resizable(0,0)
         self.title('Units')
@@ -5350,7 +5350,7 @@ class toplevel_dummy():
     def winfo_exists(self):
         return False
     
-class pxpiDialog(tkSimpleDialog.Dialog):
+class pxpiDialog(tkinter.simpledialog.Dialog):
         
     def __init__(self,
                  parent,
@@ -5422,7 +5422,7 @@ class pxpiDialog(tkSimpleDialog.Dialog):
         self.svg_width.set("%f" %(width*self.scale))
         self.svg_height.set("%f" %(height*self.scale))
         ###################################
-        tkSimpleDialog.Dialog.__init__(self, parent) 
+        tkinter.simpledialog.Dialog.__init__(self, parent) 
 
 
     def body(self, master):

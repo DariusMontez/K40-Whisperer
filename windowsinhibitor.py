@@ -46,13 +46,13 @@ if __name__ == "__main__":
     # Running this will prevent the computer from going to sleep
     # until you press a key to end the program
     osSleep = WindowsInhibitor()
-    print("no sleep = ",osSleep.inhibit())
+    print(("no sleep = ",osSleep.inhibit()))
     ####
     try:
-        raw_input("Press Enter to continue...")
+        eval(input("Press Enter to continue..."))
     except:
-        input("Press Enter to continue...")
+        eval(input("Press Enter to continue..."))
         
     if osSleep:
-        print("stop no sleep = ",osSleep.uninhibit())
+        print(("stop no sleep = ",osSleep.uninhibit()))
     ####

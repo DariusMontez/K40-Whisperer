@@ -395,9 +395,9 @@ class egv:
             scanline = []
             scanline_y = None
             if Raster_step < 0.0:
-                irange = range(len(ecoords_in))
+                irange = list(range(len(ecoords_in)))
             else:
-                irange = range(len(ecoords_in)-1,-1,-1)
+                irange = list(range(len(ecoords_in)-1,-1,-1))
             timestamp=0
             for i in irange:
                 #if i%1000 == 0:
@@ -516,9 +516,9 @@ class egv:
                         
                 ######################################
                 if sign == 1:
-                    rng = range(0,len(scan),1)
+                    rng = list(range(0,len(scan),1))
                 else:
-                    rng = range(len(scan)-1,-1,-1)
+                    rng = list(range(len(scan)-1,-1,-1))
                 ######################################
                 ## Pad row end if needed ##
                 ###########################

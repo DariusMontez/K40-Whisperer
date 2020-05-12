@@ -82,19 +82,19 @@ class K40_CLASS:
         if response != None:
             if DEBUG:
                 if int(response[0]) != 255:
-                    print ("0: ", response[0])
+                    print(("0: ", response[0]))
                 elif int(response[1]) != 206: 
-                    print ("1: ", response[1])
+                    print(("1: ", response[1]))
                 elif int(response[2]) != 111:
-                    print ("2: ", response[2])
+                    print(("2: ", response[2]))
                 elif int(response[3]) != 8:
-                    print ("3: ", response[3])
+                    print(("3: ", response[3]))
                 elif int(response[4]) != 19: #Get a 3 if you try to initialize when already initialized
-                    print ("4: ", response[4])
+                    print(("4: ", response[4]))
                 elif int(response[5]) != 0:
-                    print ("5: ", response[5])
+                    print(("5: ", response[5]))
                 else:
-                    print (".",)
+                    print((".",))
             
             if response[1]==self.OK            or \
                response[1]==self.BUFFER_FULL   or \
@@ -319,7 +319,7 @@ class K40_CLASS:
 
         if verbose:
             print("-------------- dev --------------")
-            print(self.dev)
+            print((self.dev))
         # set the active configuration. With no arguments, the first
         # configuration will be the active one
         try:
@@ -380,7 +380,7 @@ if __name__ == "__main__":
         os._exit(0) 
 
     #k40.initialize_device()
-    print (k40.say_hello())
+    print((k40.say_hello()))
     #print k40.reset_position()
     #print k40.unlock_rail()
     print ("DONE")

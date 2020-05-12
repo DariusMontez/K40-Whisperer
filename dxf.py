@@ -666,7 +666,7 @@ class DXF_CLASS:
             flag=0
             lpcnt=-1
             try:
-                xy_data = zip(e.data["10"], e.data["20"])
+                xy_data = list(zip(e.data["10"], e.data["20"]))
             except:
                 try:
                     xy_data = [[e.data["10"], e.data["20"]]]
@@ -769,7 +769,7 @@ class DXF_CLASS:
                 self.Knots[i] = (self.Knots[i]-kmin)/(kmax-kmin)
 
             try:
-                xy_data = zip(e.data["10"], e.data["20"])
+                xy_data = list(zip(e.data["10"], e.data["20"]))
             except:
                 self.dxf_message("DXF Import zero length %s Ignored" %(e.type))
                 xy_data = []
@@ -862,7 +862,7 @@ class DXF_CLASS:
             flag=0
 
             try:
-                xy_data = zip(e.data["10"], e.data["20"])
+                xy_data = list(zip(e.data["10"], e.data["20"]))
             except:
                 self.dxf_message("DXF Import zero length %s Ignored" %(e.type))
                 xy_data = []
